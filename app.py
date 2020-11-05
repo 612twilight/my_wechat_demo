@@ -53,7 +53,7 @@ def wechat():
             if "你是谁" in msg.content:
                 reply = create_reply("我是月光如水的夏夜，融化冰雪的深情", msg)
             elif "我是鸣夏" in msg.content:
-                reply = create_reply("就是爱你", msg)
+                reply = create_reply("说啥都是爱你", msg)
             else:
                 reply = create_reply(msg.content, msg)
         else:
