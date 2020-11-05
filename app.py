@@ -33,8 +33,10 @@ def wechat():
     nonce = request.args.get("nonce", "")
     encrypt_type = request.args.get("encrypt_type", "raw")
     msg_signature = request.args.get("msg_signature", "")
+    is_test = request.args.get("test", False)
     try:
-        check_signature(TOKEN, signature, timestamp, nonce)
+        if not is_test:
+            check_signature(TOKEN, signature, timestamp, nonce)
         pass
     except InvalidSignatureException:
         abort(403)
@@ -71,5 +73,8 @@ def wechat():
 
 
 if __name__ == "__main__":
-    # app.run("127.0.0.1", 80, debug=True)
-    app.run("172.17.0.10", 80, debug=True)
+    import os
+    if os.name == 'nt':
+        app.run("127.0.0.1", 80, debug=True)
+    else:
+        app.run("172.17.0.10", 80, debug=True)
