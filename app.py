@@ -18,14 +18,14 @@ app = Flask(__name__)
 
 
 # QZZa6VCqhtZw4uLFbwXLi895zg9yGCpkz94XWNMGVDL
+#
+# @app.route("/")
+# def index():
+#     host = request.url_root
+#     return render_template("index.html", host=host)
 
-@app.route("/")
-def index():
-    host = request.url_root
-    return render_template("index.html", host=host)
 
-
-@app.route("/wechat", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def wechat():
     print(request.args)
     signature = request.args.get("signature", "")
@@ -34,7 +34,7 @@ def wechat():
     encrypt_type = request.args.get("encrypt_type", "raw")
     msg_signature = request.args.get("msg_signature", "")
     try:
-        # check_signature(TOKEN, signature, timestamp, nonce)
+        check_signature(TOKEN, signature, timestamp, nonce)
         pass
     except InvalidSignatureException:
         abort(403)
