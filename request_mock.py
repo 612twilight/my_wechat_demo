@@ -6,8 +6,10 @@ import urllib.parse
 
 
 def sendReq():
-    params = urllib.parse.urlencode({'echostr': 'word', 'signature': 'time',"timestamp":"2121","nonce":"1212"})
-    url = 'http://127.0.0.1:5001/wechat?%s' % params
+    params = urllib.parse.urlencode(
+        {'echostr': 'word', 'test': True, 'signature': 'time', "timestamp": "2121", "nonce": "1212"})
+    url = 'http://115.159.197.227:80/?%s' % params
+    # url = 'http://localhost:80/?%s' % params
     with urllib.request.urlopen(url) as f:
         print(f.read().decode('utf-8'))
 
