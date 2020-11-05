@@ -50,7 +50,10 @@ def wechat():
         # plaintext mode
         msg = parse_message(request.data)
         if msg.type == "text":
-            reply = create_reply(msg.content, msg)
+            if "你是谁" in msg.content:
+                reply = create_reply("我是月光如水的夏夜，融化冰雪的深情", msg)
+            else:
+                reply = create_reply(msg.content, msg)
         else:
             reply = create_reply("Sorry, can not handle this for now", msg)
         return reply.render()
