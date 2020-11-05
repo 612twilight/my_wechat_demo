@@ -10,12 +10,14 @@ from wechatpy.exceptions import (
 )
 
 # set token or get from environments
-TOKEN = os.getenv("WECHAT_TOKEN", "123456")
-AES_KEY = os.getenv("WECHAT_AES_KEY", "")
-APPID = os.getenv("WECHAT_APPID", "")
+TOKEN = os.getenv("WECHAT_TOKEN", "twilight")
+AES_KEY = os.getenv("WECHAT_AES_KEY", "QZZa6VCqhtZw4uLFbwXLi895zg9yGCpkz94XWNMGVDL")
+APPID = os.getenv("WECHAT_APPID", "wx5c29221111cddd07")
 
 app = Flask(__name__)
 
+
+# QZZa6VCqhtZw4uLFbwXLi895zg9yGCpkz94XWNMGVDL
 
 @app.route("/")
 def index():
