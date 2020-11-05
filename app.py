@@ -69,4 +69,5 @@ def wechat():
 
 
 if __name__ == "__main__":
-    app.run("127.0.0.1", 80, debug=True)
+    # app.run("127.0.0.1", 80, debug=True)
+    app.run("172.17.0.10", 80, debug=True)
