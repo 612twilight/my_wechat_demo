@@ -4,7 +4,12 @@ from tuning import tuning_reply
 import re
 from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
 
-introduction = "调用功能的格式为：{功能名称}:{自定义内容}\n目前功能名称有：分词，翻译为中文，翻译成英文\n不想使用功能，聊天机器人就上线啦"
+introduction = "调用功能的格式为：{功能名称}:{自定义内容}\n\n" \
+               "目前功能名称有：\n\n" \
+               "分词功能，举例：\n分词:山上有一棵树\n\n" \
+               "翻译为中文功能，举例：\n翻译为中文:i love apple\n\n" \
+               "翻译成英文功能，举例：\n翻译为英文:今天天气不错\n\n" \
+               "其余输入可以唤醒聊天机器人"
 
 
 def task_controller(task_input_str: str):
