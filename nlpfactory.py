@@ -4,7 +4,7 @@ from tuning import tuning_reply
 import re
 from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
 
-introduction = "调用功能的格式为：{功能名称}:{自定义内容}\n\n" \
+introduction = "调用功能的格式为：\n{功能名称}:{自定义内容}\n\n" \
                "目前功能名称有：\n\n" \
                "分词功能，举例：\n分词:山上有一棵树\n\n" \
                "翻译为中文功能，举例：\n翻译为中文:i love apple\n\n" \
