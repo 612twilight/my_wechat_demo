@@ -58,10 +58,11 @@ def wechat():
             #     reply = create_reply("说啥都是爱你", msg)
             # else:
             #     relpy_text = tuning_reply(msg.content)
+            print(msg.content)
             relpy_text = task_controller(msg.content)
             reply = create_reply(relpy_text, msg)
         else:
-            reply = create_reply("Sorry, can not handle this for now", msg)
+            reply = create_reply(introduction, msg)
         return reply.render()
     else:
         # encryption mode
