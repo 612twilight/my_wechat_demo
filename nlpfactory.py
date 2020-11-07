@@ -7,8 +7,8 @@ from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
 introduction = "调用功能的格式为：\n{功能名称}:{自定义内容}\n\n" \
                "目前功能名称有：\n\n" \
                "分词功能，举例：\n分词:山上有一棵树\n\n" \
-               "翻译为中文功能，举例：\n翻译为中文:i love apple\n\n" \
-               "翻译成英文功能，举例：\n翻译为英文:今天天气不错\n\n" \
+               "翻译成中文功能，举例：\n翻译成中文:i love apple\n\n" \
+               "翻译成英文功能，举例：\n翻译成英文:今天天气不错\n\n" \
                "其余输入可以唤醒聊天机器人"
 
 
