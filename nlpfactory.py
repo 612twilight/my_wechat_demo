@@ -2,6 +2,7 @@ import jieba
 import pkuseg
 from tuning import tuning_reply
 import re
+from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
 
 
 def task_controller(task_input_str: str):
@@ -35,7 +36,8 @@ def default_task(input_str):
     return relpy_text
 
 
-task_types = {"分词": word_seg_task, "default": default_task}
+task_types = {"分词": word_seg_task, "default": default_task, "翻译成中文": baidu_translate_to_zh,
+              "翻译成英文": baidu_translate_to_en}
 
 if __name__ == '__main__':
     fenci_input = "分词:你是人间的四月天"
