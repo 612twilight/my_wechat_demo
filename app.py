@@ -16,7 +16,7 @@ APPID = os.getenv("WECHAT_APPID", "wx5c29221111cddd07")
 
 app = Flask(__name__)
 from tuning import tuning_reply
-from nlpfactory import task_controller
+from nlpfactory import task_controller, introduction
 
 
 # QZZa6VCqhtZw4uLFbwXLi895zg9yGCpkz94XWNMGVDL
@@ -77,7 +77,6 @@ def wechat():
             if msg.type == "text":
                 reply = create_reply(msg.content, msg)
             else:
-                introduction = "调用功能的格式为：{功能名称}:{自定义内容}\n目前功能名称有：分词，翻译为中文，翻译成英文\n不想使用功能，聊天机器人就上线啦"
                 reply = create_reply(introduction, msg)
             return crypto.encrypt_message(reply.render(), nonce, timestamp)
 

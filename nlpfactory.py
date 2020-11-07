@@ -4,6 +4,8 @@ from tuning import tuning_reply
 import re
 from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
 
+introduction = "调用功能的格式为：{功能名称}:{自定义内容}\n目前功能名称有：分词，翻译为中文，翻译成英文\n不想使用功能，聊天机器人就上线啦"
+
 
 def task_controller(task_input_str: str):
     if ":" in task_input_str or "：" in task_input_str:
@@ -31,6 +33,8 @@ def default_task(input_str):
         relpy_text = "我是月光如水的夏夜，融化冰雪的深情"
     elif "我是鸣夏" in input_str:
         relpy_text = "说啥都是爱你"
+    elif "功能介绍" in input_str:
+        relpy_text = introduction
     else:
         relpy_text = tuning_reply(input_str)
     return relpy_text
