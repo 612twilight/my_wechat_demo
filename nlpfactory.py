@@ -41,9 +41,9 @@ def poet_task(input_str):
         url = 'http://localhost:5000/poem?%s' % params
         with urllib.request.urlopen(url) as f:
             reply = f.read().decode('utf-8')
+            return reply
     except:
-        default_task(input_str)
-    return reply
+        return default_task(input_str)
 
 
 def default_task(input_str):
