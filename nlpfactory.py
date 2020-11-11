@@ -3,6 +3,8 @@ import pkuseg
 from tuning import tuning_reply
 import re
 from BaiduTransAPI import baidu_translate_to_zh, baidu_translate_to_en
+import urllib.request
+import urllib.parse
 
 introduction = "调用功能的格式为：\n{功能名称}:{自定义内容}\n\n" \
                "目前功能名称有：\n\n" \
@@ -33,6 +35,17 @@ def word_seg_task(input_str):
     return "jieba分词：" + jieba_result + "\npkuseg分词：" + text
 
 
+def poet_task(input_str):
+    try:
+        params = urllib.parse.urlencode({'start': input_str, 'style': 3})
+        url = 'http://localhost:5000/poem?%s' % params
+        with urllib.request.urlopen(url) as f:
+            reply = f.read().decode('utf-8')
+    except:
+        default_task(input_str)
+    return reply
+
+
 def default_task(input_str):
     if "你是谁" in input_str:
         relpy_text = "我是月光如水的夏夜，融化冰雪的深情"
@@ -46,7 +59,7 @@ def default_task(input_str):
 
 
 task_types = {"分词": word_seg_task, "default": default_task, "翻译成中文": baidu_translate_to_zh,
-              "翻译成英文": baidu_translate_to_en}
+              "翻译成英文": baidu_translate_to_en, "藏头诗": poet_task}
 
 if __name__ == '__main__':
     fenci_input = "分词:你是人间的四月天"
